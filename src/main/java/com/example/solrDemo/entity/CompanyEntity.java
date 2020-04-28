@@ -10,9 +10,10 @@
  */
 package com.example.solrDemo.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import org.apache.solr.client.solrj.beans.Field;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -26,19 +27,34 @@ import javax.persistence.Table;
 @Table(name = "solr_company")
 public class CompanyEntity  extends UuidEntity{
 
+    @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
+    @Field
+    private String id;
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+
     /**
      * 公司名称.
      */
     @Column(name = "name")
+    @Field
     private String name;
 
     /** 社会统一编码. */
     @Column(name = "credit_code")
+    @Field
     private String creditCode;
 
     /**
      * 公司名称_高亮显示
      */
+    @Field
     private String hilightName;
 
     public String getName() {

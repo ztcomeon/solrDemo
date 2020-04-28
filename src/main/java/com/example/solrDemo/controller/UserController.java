@@ -37,6 +37,7 @@ import java.util.List;
  * @since 1.0.0
  */
 @RestController
+@RequestMapping("/v1/user")
 public class UserController extends BaseController {
 
     @Autowired

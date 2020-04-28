@@ -32,7 +32,7 @@ public class SolrClientConfig {
     /**
      * solr coreName.
      **/
-    @Value("${solr.coreName}")
+    @Value("${spring.data.solr.coreName}")
     private String CORE_NAME;
 
     @Bean
